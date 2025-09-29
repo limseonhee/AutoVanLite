@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pkill:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(rd:*)",
+      "Bash(netstat:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs -r kill -9)",
+      "Bash(killall:*)",
+      "mcp__sequential-thinking__sequential_thinking"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

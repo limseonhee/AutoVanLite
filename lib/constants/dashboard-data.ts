@@ -1,0 +1,137 @@
+export const DASHBOARD_DATA = {
+    monthlySavings: {
+        savingsAmount: 182000,
+        originalCost: 245000,
+        savingsPercentage: 24,
+    },
+    installationGoal: {
+        currentInstalls: 750,
+        targetInstalls: 15000,
+    },
+    autoSms: {
+        smsTargets: 1430,
+        pushTargets: 1600,
+        segments: [
+            {
+                id: "insurance_expire",
+                name: "보험만료고객",
+                condition: "만료 D-7 ~ D-1",
+                targetCount: 128,
+                status: "ready" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "oil_change",
+                name: "오일교환고객",
+                condition: "주행거리/기간 기준",
+                targetCount: 86,
+                status: "ready" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "inspection",
+                name: "검사(환경)고객",
+                condition: "검사 예정/지연",
+                targetCount: 42,
+                status: "completed" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "preventive",
+                name: "예방정비고객",
+                condition: "예측 점검 필요",
+                targetCount: 95,
+                status: "ready" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "happy_call",
+                name: "해피콜고객",
+                condition: "방문 후 1~3일",
+                targetCount: 67,
+                status: "sending" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "first_visit",
+                name: "처음방문고객",
+                condition: "첫 방문 이후 N일",
+                targetCount: 34,
+                status: "ready" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+            {
+                id: "booking",
+                name: "예약고객",
+                condition: "예약 D-1/D-0",
+                targetCount: 52,
+                status: "ready" as const,
+                channels: ["SMS", "Push"] as const,
+            },
+        ],
+    },
+    bulkReportSend: {
+        todayInboundCount: 12,
+        todaySentCount: 9,
+    },
+    monthlyTemplates: [
+        {
+            id: "chuseok_long_drive",
+            name: "추석 한가위 장기운행 점검",
+            description: "명절 고향길, 안전하게 다녀오세요",
+            targetSegment: "예방정비고객",
+            effectTag: "재방문↑",
+            previewText:
+                "추석 연휴 고향길 준비하셨나요? 장거리 운행 전 브레이크, 타이어, 엔진오일 점검으로 안전한 명절 보내세요!",
+        },
+        {
+            id: "summer_check",
+            name: "여름철 차량 점검",
+            description: "휴가 전, 열받기 전에 미리 한 번 점검!",
+            targetSegment: "예방정비고객",
+            effectTag: "재방문↑",
+            previewText:
+                "무더운 여름, 차량 점검으로 안전한 휴가 준비하세요! 에어컨 점검부터 냉각수까지 꼼꼼히 체크해드립니다.",
+        },
+        {
+            id: "tire_safety",
+            name: "타이어 안전주간",
+            description: "마모도 체크하고 안전도 챙기세요",
+            targetSegment: "오일/소모품고객",
+            effectTag: "이탈↓",
+            previewText: "타이어 마모도가 위험 수준에 도달했습니다. 안전한 주행을 위해 점검 받아보세요!",
+        },
+    ],
+    smsPushTrend: [
+        {
+            period: "초기",
+            smsPercent: 100,
+            pushPercent: 0,
+            description: "차계부 설치율 낮음, SMS 의존도 높음",
+        },
+        {
+            period: "성장",
+            smsPercent: 75,
+            pushPercent: 25,
+            description: "차계부 설치율 25% 달성",
+        },
+        {
+            period: "전환점",
+            smsPercent: 50,
+            pushPercent: 50,
+            description: "차계부 설치율 50% 달성",
+        },
+        {
+            period: "우세",
+            smsPercent: 30,
+            pushPercent: 70,
+            description: "차계부 설치율 70% 달성",
+        },
+        {
+            period: "목표",
+            smsPercent: 10,
+            pushPercent: 90,
+            description: "차계부 설치율 90% 달성, 푸시 중심 운영",
+        },
+    ],
+} as const;
