@@ -24,9 +24,7 @@ const nextConfig = {
         return config;
     },
     // 개발 서버 설정
-    devIndicators: {
-        buildActivity: false,
-    },
+    // Note: devIndicators.buildActivity is deprecated in Next.js 15+
 };
 
 export default nextConfig;

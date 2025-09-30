@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MessageCircle, Send, TrendingUp, Users, Star } from "lucide-react";
+import { useManualSendModal } from "@/contexts/manual-send-modal-context";
 
 interface Template {
     id: string;
@@ -20,6 +21,8 @@ interface MonthlyTemplateSectionProps {
 }
 
 export function MonthlyTemplateSection({ templates, onSendTemplate }: MonthlyTemplateSectionProps) {
+    const { openModal } = useManualSendModal();
+
     const getEffectIcon = (effectTag: string) => {
         switch (effectTag) {
             case "재방문↑":
@@ -62,6 +65,17 @@ export function MonthlyTemplateSection({ templates, onSendTemplate }: MonthlyTem
                             </p>
                         </div>
                     </div>
+
+                    {/* 수동 발송 버튼 */}
+                    <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => openModal()}
+                        className="rounded-[3px] bg-purple-500 hover:bg-purple-600"
+                    >
+                        <Send className="h-4 w-4 mr-1" />
+                        수동 발송
+                    </Button>
                 </div>
 
                 {/* 템플릿 리스트 */}
@@ -92,8 +106,8 @@ export function MonthlyTemplateSection({ templates, onSendTemplate }: MonthlyTem
                                 <div className="flex-shrink-0">
                                     <Button
                                         size="sm"
-                                        onClick={() => onSendTemplate?.(template.id)}
-                                        className="bg-purple-500 hover:bg-purple-600 text-white text-xs px-4 w-full md:w-auto"
+                                        onClick={() => openModal(template.previewText, true)}
+                                        className="bg-purple-500 hover:bg-purple-600 text-white text-xs px-4 w-full md:w-auto rounded-[3px]"
                                     >
                                         <Send className="h-3 w-3 mr-1" />
                                         수동 발송

@@ -12,7 +12,11 @@
       "Bash(lsof:*)",
       "Bash(xargs -r kill -9)",
       "Bash(killall:*)",
-      "mcp__sequential-thinking__sequential_thinking"
+      "mcp__sequential-thinking__sequential_thinking",
+      "Bash(npm run build:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_snapshot"
     ],
     "deny": [],
     "ask": []

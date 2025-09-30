@@ -43,7 +43,10 @@ export function MonthlySavingsSection({
                 </div>
 
                 {/* 추가절감하기 버튼 */}
-                <Button onClick={onAddSavings} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm">
+                <Button
+                    onClick={onAddSavings}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 text-sm rounded-[3px]"
+                >
                     <TrendingUp className="h-4 w-4 mr-1" />
                     추가절감하기
                 </Button>

@@ -8,9 +8,9 @@ import { AutoSmsSection } from "@/components/sections/auto-sms-section";
 import { BulkReportSendSection } from "@/components/sections/bulk-report-send-section";
 import { MonthlyTemplateSection } from "@/components/sections/monthly-template-section";
 import { SmsPushTrendSection } from "@/components/sections/sms-push-trend-section";
-import { CalendarSection } from "@/components/sections/calendar-section";
+import { DailyChartSection } from "@/components/sections/daily-chart-section";
 import { useNavigation } from "@/hooks/use-navigation";
-import { DASHBOARD_DATA } from "@/lib/constants/dashboard-data";
+import { DASHBOARD_DATA } from "@/mocks";
 
 export default function Home() {
     const { navigateToCharge } = useNavigation();
@@ -94,9 +94,9 @@ export default function Home() {
                     <SmsPushTrendSection trendData={DASHBOARD_DATA.smsPushTrend} />
                 </div>
 
-                {/* 네 번째 행: 캘린더 */}
+                {/* 네 번째 행: 일별 차트 */}
                 <div className="grid grid-cols-1 gap-6">
-                    <CalendarSection year={2025} month={9} totalSmsCount={850} totalPushCount={559} />
+                    <DailyChartSection year={2025} month={9} totalSmsCount={850} totalPushCount={559} />
                 </div>
             </Container>
         </div>

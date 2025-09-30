@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/header";
 import { SubHeader } from "@/components/layout/sub-header";
+import { ManualSendModalProvider } from "@/contexts/manual-send-modal-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,12 +19,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="ko" suppressHydrationWarning>
             <body className={`${GeistSans.className} bg-[#F9FAFC] dark:bg-gray-900`}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="relative flex min-h-screen flex-col">
-                        <Header />
-                        <SubHeader />
-                        <main className="flex-1">{children}</main>
-                    </div>
+                    <ManualSendModalProvider>
+                        <div className="relative flex min-h-screen flex-col">
+                            <Header />
+                            <SubHeader />
+                            <main className="flex-1">{children}</main>
+                        </div>
+                    </ManualSendModalProvider>
                 </ThemeProvider>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            // Global error handler for unhandled promise rejections
+                            window.addEventListener('unhandledrejection', function(event) {
+                                console.error('Unhandled promise rejection:', event.reason);
+                                console.error('Promise:', event.promise);
+                                // Prevent the default browser behavior
+                                event.preventDefault();
+                            });
+                            
+                            // Global error handler for general errors
+                            window.addEventListener('error', function(event) {
+                                console.error('Global error:', event.error);
+                                console.error('Message:', event.message);
+                                console.error('Source:', event.filename, 'Line:', event.lineno);
+                            });
+                        `,
+                    }}
+                />
             </body>
         </html>
     );
