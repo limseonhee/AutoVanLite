@@ -5,8 +5,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useNavigation } from "@/hooks/use-navigation";
-import { useDropdown } from "@/hooks/use-dropdown";
-import { HeaderDropdown } from "@/components/layout/header-dropdown";
 import { ManualSendPage } from "@/components/pages/manual-send-page";
 import { useManualSendModal } from "@/contexts/manual-send-modal-context";
 import { useState, useEffect } from "react";
@@ -15,7 +13,6 @@ const HEADER_IMAGE_STATE_KEY = "header-main-image-state";
 
 export function Header() {
     const { navigateToCharge, navigateToMessage, navigateToProgramming, navigateToHome } = useNavigation();
-    const { isDropdownOpen, toggleDropdown, closeDropdown } = useDropdown();
     const { isOpen: showManualSendModal, openModal, closeModal, initialMessage, hideTemplates } = useManualSendModal();
     const [showMainImage, setShowMainImage] = useState(false);
     const [isHydrated, setIsHydrated] = useState(false);
@@ -44,9 +41,9 @@ export function Header() {
     }, [showMainImage, isHydrated]);
 
     return (
-        <div className="sticky top-0 z-40">
+        <>
             {/* 헤더 - 여기까지가 실제 헤더 영역 */}
-            <header className="bg-[#F9FAFC] dark:bg-gray-900">
+            <header className="sticky top-0 z-40 bg-[#F9FAFC] dark:bg-gray-900">
                 <div className="h-14 flex items-center justify-between px-6">
                     {/* 로고 영역 */}
                     <Link href="/" onClick={navigateToHome} className="flex items-center space-x-2">
@@ -87,8 +84,8 @@ export function Header() {
 
                     {/* 우측 영역: 네비게이션 메뉴 + 설정 + 다크모드 */}
                     <div className="flex items-center gap-6">
-                        {/* 네비게이션 메뉴 */}
-                        <nav className="hidden md:flex gap-8 text-sm text-gray-600 dark:text-gray-300">
+                        {/* 네비게이션 메뉴 - 추후 사용 예정으로 숨김 처리 */}
+                        <nav className="hidden">
                             <button
                                 onClick={navigateToCharge}
                                 className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -199,47 +196,7 @@ export function Header() {
                     </div>
                 )}
             </div>
-
-            <HeaderDropdown isOpen={isDropdownOpen} onClose={closeDropdown} />
-
-            {/* 수동 발송 모달 */}
-            {showManualSendModal && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-                    <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-auto">
-                        <div className="sticky top-0 bg-white dark:bg-gray-900 p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between z-10">
-                            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">수동 발송</h2>
-                            <Button
-                                variant="outline"
-                                size="sm"
-                                onClick={() => closeModal()}
-                                className="rounded-[3px] bg-gray-50 hover:bg-gray-100 border-gray-200 text-gray-600 hover:text-gray-700"
-                            >
-                                닫기
-                            </Button>
-                        </div>
-                        <div className="p-0">
-                            <ManualSendPage
-                                initialMessage={initialMessage}
-                                hideTemplates={hideTemplates}
-                                onSend={(data) => {
-                                    console.log("발송 완료:", data);
-                                    // TODO: 발송 완료 후 모달 닫기 또는 결과 표시
-                                    closeModal();
-                                }}
-                                onSchedule={(data) => {
-                                    console.log("예약 완료:", data);
-                                    // TODO: 예약 완료 후 모달 닫기 또는 결과 표시
-                                    closeModal();
-                                }}
-                                onSaveTemplate={(template) => {
-                                    console.log("템플릿 저장:", template);
-                                    // TODO: 템플릿 저장 완료 알림
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+        </>
     );
 }
+

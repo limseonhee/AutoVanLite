@@ -75,6 +75,7 @@ export interface SendData {
     targetCount: number;
     category: CategoryType;
     filters: Filters;
+    channel?: "SMS" | "PUSH";
 }
 
 export interface ScheduleData extends SendData {

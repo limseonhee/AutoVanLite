@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface HeaderDropdownProps {
     isOpen: boolean;
@@ -12,6 +13,17 @@ interface HeaderDropdownProps {
 }
 
 export function HeaderDropdown({ isOpen, onClose }: HeaderDropdownProps) {
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handleScroll = () => {
+            onClose();
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [isOpen, onClose]);
+
     return (
         <AnimatePresence>
             {isOpen && (

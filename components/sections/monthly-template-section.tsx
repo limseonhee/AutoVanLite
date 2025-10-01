@@ -79,7 +79,7 @@ export function MonthlyTemplateSection({ templates, onSendTemplate }: MonthlyTem
                 </div>
 
                 {/* 템플릿 리스트 */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {templates.map((template, index) => (
                         <div
                             key={template.id}

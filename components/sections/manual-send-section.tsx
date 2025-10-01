@@ -406,11 +406,44 @@ export function ManualSendSection({
                         </div>
                     )}
 
-                    <div className="flex items-center justify-end">
-                        <Button onClick={handleSendClick} disabled={!canSend} className="min-w-32">
-                            <Send className="mr-1 h-4 w-4" />
-                            {sendMode === "schedule" ? "예약 발송" : "즉시 발송"}
-                        </Button>
+                    <div className="flex items-center justify-end gap-2">
+                        {sendMode === "schedule" ? (
+                            <Button onClick={handleSendClick} disabled={!canSend} className="min-w-32">
+                                <Clock className="mr-1 h-4 w-4" />
+                                예약 발송
+                            </Button>
+                        ) : (
+                            <>
+                                <Button
+                                    onClick={() => {
+                                        // SMS 발송 로직
+                                        const result = handleSend();
+                                        if (result && result.type === "send") {
+                                            onSend?.({...result.data, channel: "SMS"});
+                                        }
+                                    }}
+                                    disabled={!canSend}
+                                    className="min-w-24 bg-blue-500 hover:bg-blue-600"
+                                >
+                                    <Send className="mr-1 h-4 w-4" />
+                                    SMS 발송
+                                </Button>
+                                <Button
+                                    onClick={() => {
+                                        // PUSH 발송 로직
+                                        const result = handleSend();
+                                        if (result && result.type === "send") {
+                                            onSend?.({...result.data, channel: "PUSH"});
+                                        }
+                                    }}
+                                    disabled={!canSend}
+                                    className="min-w-24 bg-purple-500 hover:bg-purple-600"
+                                >
+                                    <Send className="mr-1 h-4 w-4" />
+                                    PUSH 발송
+                                </Button>
+                            </>
+                        )}
                     </div>
                 </CardContent>
             </Card>
