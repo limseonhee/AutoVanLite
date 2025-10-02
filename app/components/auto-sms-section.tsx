@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,8 +20,7 @@ interface AutoSmsSectionProps {
     onSendSegment?: (segmentId: string) => void;
     onViewTargets?: (segmentId: string) => void;
 }
-
-export function AutoSmsSection({
+export default function AutoSmsSection({
     smsTargets,
     pushTargets,
     segments,
@@ -57,7 +54,6 @@ export function AutoSmsSection({
                 return "대기";
         }
     };
-
     return (
         <>
             <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
@@ -79,16 +75,17 @@ export function AutoSmsSection({
 
                     {/* 세그먼트 요약은 제거 - 이미지에 없음 */}
 
-                    {/* 세그먼트 리스트 */}
-                    <div className="space-y-3">
+                    {/* 세그먼트 리스트 - 2열 그리드 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {segments.map((segment) => (
                             <div
                                 key={segment.id}
-                                className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                                className="flex items-center justify-between p-4"
+                                style={{ backgroundColor: '#EEFAFF' }}
                             >
-                                <div className="flex-1">
+                                <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-3">
-                                        <span className="font-medium text-gray-900 dark:text-white">
+                                        <span className="text-sm font-semibold text-gray-900 dark:text-white">
                                             {segment.name}
                                         </span>
                                     </div>
@@ -98,19 +95,7 @@ export function AutoSmsSection({
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-2">
-                                    <Button
-                                        size="sm"
-                                        onClick={() => {
-                                            setSelectedSegment(segment);
-                                            setShowPopup(true);
-                                        }}
-                                        disabled={segment.status === "sending"}
-                                        className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4  rounded-[3px]"
-                                    >
-                                        <Send className="h-4 w-4 mr-1" />
-                                        발송
-                                    </Button>
+                                <div className="flex flex-col gap-2 ml-2">
                                     <Button
                                         variant="outline"
                                         size="sm"
@@ -118,10 +103,23 @@ export function AutoSmsSection({
                                             setSelectedSegment(segment);
                                             setShowPopup(true);
                                         }}
-                                        className="text-sm px-4 border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-[3px]"
+                                        className="text-xs px-3 py-1 h-7 border-gray-200 bg-white hover:bg-gray-50 text-gray-700 rounded-[3px] whitespace-nowrap"
                                     >
-                                        <Eye className="h-4 w-4 mr-1" />
-                                        확인
+                                        <Eye className="h-3 w-3 mr-1" />
+                                        발송 전 확인
+                                    </Button>
+                                    <Button
+                                        size="sm"
+                                        onClick={() => {
+                                            setSelectedSegment(segment);
+                                            setShowPopup(true);
+                                        }}
+                                        disabled={segment.status === "sending"}
+                                        className="text-white text-xs px-3 py-1 h-7 rounded-[3px] whitespace-nowrap"
+                                        style={{ backgroundColor: '#0AA5ED' }}
+                                    >
+                                        <Send className="h-3 w-3 mr-1" />
+                                        발송
                                     </Button>
                                 </div>
                             </div>

@@ -79,40 +79,34 @@ export function MonthlyTemplateSection({ templates, onSendTemplate }: MonthlyTem
                 </div>
 
                 {/* 템플릿 리스트 */}
-                <div className="space-y-3">
+                <div className="space-y-2">
                     {templates.map((template, index) => (
                         <div
                             key={template.id}
-                            className="border border-purple-200/50 bg-purple-50/30 rounded-lg p-4 hover:border-purple-300/50 hover:bg-purple-50/40 transition-all duration-300 ease-out"
-                            style={{ animationDelay: `${index * 100}ms` }}
+                            className="flex items-center justify-between p-4"
+                            style={{ backgroundColor: '#F5F0FF' }}
                         >
-                            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                                {/* 템플릿 정보 */}
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-2 mb-2">
-                                        <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                                            {template.name}
-                                        </h4>
-                                    </div>
-                                    {/* 미리보기 텍스트 */}
-                                    <div className="mt-2 p-3 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700 min-h-[60px]">
-                                        <p className="text-xs text-gray-700 dark:text-gray-300 italic leading-relaxed">
-                                            "{template.previewText}"
-                                        </p>
-                                    </div>
-                                </div>
+                            {/* 템플릿 정보 */}
+                            <div className="flex-1 min-w-0">
+                                <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                                    {template.name}
+                                </h4>
+                                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    {template.previewText}
+                                </p>
+                            </div>
 
-                                {/* 발송 버튼 */}
-                                <div className="flex-shrink-0">
-                                    <Button
-                                        size="sm"
-                                        onClick={() => openModal(template.previewText, true)}
-                                        className="bg-purple-500 hover:bg-purple-600 text-white text-xs px-4 w-full md:w-auto rounded-[3px]"
-                                    >
-                                        <Send className="h-3 w-3 mr-1" />
-                                        수동 발송
-                                    </Button>
-                                </div>
+                            {/* 발송 버튼 */}
+                            <div className="flex-shrink-0 ml-4">
+                                <Button
+                                    size="sm"
+                                    onClick={() => openModal(template.previewText, true)}
+                                    className="text-white text-xs px-4 py-2 h-8 rounded-[3px] whitespace-nowrap"
+                                    style={{ backgroundColor: '#9333EA' }}
+                                >
+                                    <Send className="h-3 w-3 mr-1" />
+                                    수동 발송
+                                </Button>
                             </div>
                         </div>
                     ))}

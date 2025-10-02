@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/header";
-import { SubHeader } from "@/components/layout/sub-header";
 import { ManualSendModalProvider } from "@/contexts/manual-send-modal-context";
 import "./globals.css";
 
@@ -22,7 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <ManualSendModalProvider>
                         <div className="relative flex min-h-screen flex-col">
                             <Header />
-                            <SubHeader />
                             <main className="flex-1">{children}</main>
                         </div>
                     </ManualSendModalProvider>

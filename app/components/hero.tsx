@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/layout/container";
 
-export function HeroSection() {
+export default function Hero() {
     return (
         <section className="bg-[#F9FAFC] dark:bg-gray-900">
             <Container className="py-2">

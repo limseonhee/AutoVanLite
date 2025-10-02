@@ -1,19 +1,28 @@
 "use client";
 
 import { Container } from "@/components/layout/container";
-import { HeroSection } from "@/components/sections/hero-section";
-import { MonthlySavingsSection } from "@/components/sections/monthly-savings-section";
-import { SimpleInstallationGauge } from "@/components/sections/simple-installation-gauge";
-import { AutoSmsSection } from "@/components/sections/auto-sms-section";
-import { BulkReportSendSection } from "@/components/sections/bulk-report-send-section";
-import { MonthlyTemplateSection } from "@/components/sections/monthly-template-section";
+
 import { SmsPushTrendSection } from "@/components/sections/sms-push-trend-section";
-import { DailyChartSection } from "@/components/sections/daily-chart-section";
 import { useNavigation } from "@/hooks/use-navigation";
 import { DASHBOARD_DATA } from "@/mocks";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+import Hero from "./components/hero";
+import PreView from "./components/preView";
+import SimpleInstallationGauge from "./components/simple-installation-gauge";
+import BulkReportSendSection from "./components/bulk-report-send-section";
+import MonthlySavingsSection from "./components/monthly-savings-section";
+import DailyChartSection from "./components/daily-chart-section";
+import MonthlyTemplateSection from "./components/monthly-template-section";
+import AutoSmsSection from "./components/auto-sms-section";
+
+const HEADER_IMAGE_STATE_KEY = "header-main-image-state";
 
 export default function Home() {
     const { navigateToCharge } = useNavigation();
+    const [showMainImage, setShowMainImage] = useState(false);
+    const [isHydrated, setIsHydrated] = useState(false);
 
     const handleSendSegment = (segmentId: string) => {
         console.log("발송 세그먼트:", segmentId);
@@ -40,13 +49,47 @@ export default function Home() {
         // TODO: 템플릿 발송 로직 구현
     };
 
+    // 클라이언트에서만 localStorage 상태 복원
+    useEffect(() => {
+        try {
+            const savedState = localStorage.getItem(HEADER_IMAGE_STATE_KEY);
+            if (savedState) {
+                setShowMainImage(JSON.parse(savedState));
+            }
+        } catch (error) {
+            console.warn("Failed to restore header image state:", error);
+        }
+        setIsHydrated(true);
+    }, []);
+
+    // 이미지 상태가 변경될 때 localStorage에 저장 (hydration 후에만)
+    useEffect(() => {
+        if (!isHydrated) return;
+        try {
+            localStorage.setItem(HEADER_IMAGE_STATE_KEY, JSON.stringify(showMainImage));
+        } catch (error) {
+            console.warn("Failed to save header image state:", error);
+        }
+    }, [showMainImage, isHydrated]);
+
     return (
         <div className="min-h-screen bg-[#F9FAFC] dark:bg-gray-900">
+            {/* 차계부 둘러보기 버튼 영역 - 적당히 연한 내부 그림자 효과 */}
+            <PreView showMainImage={showMainImage} setShowMainImage={setShowMainImage} />
+
             {/* 히어로 섹션 */}
-            <HeroSection />
+            <Hero />
 
             <Container className="py-8">
-                {/* 첫 번째 행: 이달의 절감액 + 설치목표 게이지 */}
+                {/* 첫 번째 행: 차계부 설치현황 (풀 너비) */}
+                <div className="mb-6">
+                    <SimpleInstallationGauge
+                        currentInstalls={DASHBOARD_DATA.installationGoal.currentInstalls}
+                        targetInstalls={DASHBOARD_DATA.installationGoal.targetInstalls}
+                    />
+                </div>
+
+                {/* 두 번째 행: 이달의 절감액 + 점검정비명세서 일괄발송 */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     {/* 이달의 절감액 섹션 */}
                     <MonthlySavingsSection
@@ -56,16 +99,17 @@ export default function Home() {
                         onAddSavings={navigateToCharge}
                     />
 
-                    {/* 간단한 설치목표 게이지 */}
-                    <SimpleInstallationGauge
-                        currentInstalls={DASHBOARD_DATA.installationGoal.currentInstalls}
-                        targetInstalls={DASHBOARD_DATA.installationGoal.targetInstalls}
+                    {/* 점검정비명세서 일괄발송 */}
+                    <BulkReportSendSection
+                        todayInboundCount={DASHBOARD_DATA.bulkReportSend.todayInboundCount}
+                        todaySentCount={DASHBOARD_DATA.bulkReportSend.todaySentCount}
+                        onViewAll={handleViewAllReports}
+                        onBulkSend={handleBulkSend}
                     />
                 </div>
 
-                {/* 두 번째 행: 대기 메시지 관리 + 우측 컬럼 */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    {/* 대기 메시지 관리 (좌측 50%) */}
+                {/* 세 번째 행: 대기 메시지 관리 (풀 너비) */}
+                <div className="mb-6">
                     <AutoSmsSection
                         smsTargets={DASHBOARD_DATA.autoSms.smsTargets}
                         pushTargets={DASHBOARD_DATA.autoSms.pushTargets}
@@ -73,28 +117,22 @@ export default function Home() {
                         onSendSegment={handleSendSegment}
                         onViewTargets={handleViewTargets}
                     />
-
-                    {/* 우측 컬럼 (점검정비명세서 + 템플릿, 50%) */}
-                    <div className="space-y-6">
-                        <BulkReportSendSection
-                            todayInboundCount={DASHBOARD_DATA.bulkReportSend.todayInboundCount}
-                            todaySentCount={DASHBOARD_DATA.bulkReportSend.todaySentCount}
-                            onViewAll={handleViewAllReports}
-                            onBulkSend={handleBulkSend}
-                        />
-                        <MonthlyTemplateSection
-                            templates={DASHBOARD_DATA.monthlyTemplates}
-                            onSendTemplate={handleSendTemplate}
-                        />
-                    </div>
                 </div>
 
-                {/* 세 번째 행: SMS vs 푸시메시지 사용률 추이 */}
+                {/* 네 번째 행: 이달의 추천 메시지발송문구 (풀 너비) */}
+                <div className="mb-6">
+                    <MonthlyTemplateSection
+                        templates={DASHBOARD_DATA.monthlyTemplates}
+                        onSendTemplate={handleSendTemplate}
+                    />
+                </div>
+
+                {/* 다섯 번째 행: SMS vs 푸시메시지 사용률 추이 */}
                 <div className="grid grid-cols-1 gap-6 mb-6">
                     <SmsPushTrendSection trendData={DASHBOARD_DATA.smsPushTrend} />
                 </div>
 
-                {/* 네 번째 행: 일별 차트 */}
+                {/* 여섯 번째 행: 일별 차트 */}
                 <div className="grid grid-cols-1 gap-6">
                     <DailyChartSection year={2025} month={9} totalSmsCount={850} totalPushCount={559} />
                 </div>

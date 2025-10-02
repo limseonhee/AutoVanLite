@@ -9,3 +9,6 @@ export { generateCalendarData, SAMPLE_CALENDAR_DATA } from "./calendar-data";
 
 // 팝업 데이터
 export { generateCustomers, BULK_REPORT_PREVIEW, SEGMENT_MESSAGE_TEMPLATES, getSegmentMessage } from "./popup-data";
+
+// 메시지 템플릿 데이터
+export { MESSAGE_TEMPLATES } from "./message-templates";

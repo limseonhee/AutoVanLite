@@ -1,10 +1,8 @@
-"use client";
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, BarChart3 } from "lucide-react";
 import { useState } from "react";
-import { CalendarSection } from "./calendar-section";
+import { CalendarSection } from "@/components/sections/calendar-section";
 import { SAMPLE_DAILY_CHART_DATA } from "@/mocks";
 
 interface DailyChartSectionProps {
@@ -14,12 +12,7 @@ interface DailyChartSectionProps {
     totalPushCount?: number;
 }
 
-export function DailyChartSection({
-    year = 2025,
-    month = 9,
-    totalSmsCount = 850,
-    totalPushCount = 559,
-}: DailyChartSectionProps) {
+export default function DailyChartSection({ year, month, totalSmsCount, totalPushCount }: DailyChartSectionProps) {
     const [showCalendarModal, setShowCalendarModal] = useState(false);
 
     const dailyData = SAMPLE_DAILY_CHART_DATA;

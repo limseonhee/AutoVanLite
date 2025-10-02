@@ -1,44 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useNavigation } from "@/hooks/use-navigation";
 import { ManualSendPage } from "@/components/pages/manual-send-page";
 import { useManualSendModal } from "@/contexts/manual-send-modal-context";
 import { useState, useEffect } from "react";
 
-const HEADER_IMAGE_STATE_KEY = "header-main-image-state";
-
 export function Header() {
     const { navigateToCharge, navigateToMessage, navigateToProgramming, navigateToHome } = useNavigation();
-    const { isOpen: showManualSendModal, openModal, closeModal, initialMessage, hideTemplates } = useManualSendModal();
-    const [showMainImage, setShowMainImage] = useState(false);
-    const [isHydrated, setIsHydrated] = useState(false);
-
-    // 클라이언트에서만 localStorage 상태 복원
-    useEffect(() => {
-        try {
-            const savedState = localStorage.getItem(HEADER_IMAGE_STATE_KEY);
-            if (savedState) {
-                setShowMainImage(JSON.parse(savedState));
-            }
-        } catch (error) {
-            console.warn("Failed to restore header image state:", error);
-        }
-        setIsHydrated(true);
-    }, []);
-
-    // 이미지 상태가 변경될 때 localStorage에 저장 (hydration 후에만)
-    useEffect(() => {
-        if (!isHydrated) return;
-        try {
-            localStorage.setItem(HEADER_IMAGE_STATE_KEY, JSON.stringify(showMainImage));
-        } catch (error) {
-            console.warn("Failed to save header image state:", error);
-        }
-    }, [showMainImage, isHydrated]);
 
     return (
         <>
@@ -79,7 +49,7 @@ export function Header() {
                                 </defs>
                             </svg>
                         </div>
-                        <span className="font-semibold">아우토반(AutoVan)</span>
+                        <span className="font-semibold">아우토반 - AutoVan</span>
                     </Link>
 
                     {/* 우측 영역: 네비게이션 메뉴 + 설정 + 다크모드 */}
@@ -144,59 +114,6 @@ export function Header() {
                     </div>
                 </div>
             </header>
-
-            {/* 차계부 둘러보기 버튼 영역 - 적당히 연한 내부 그림자 효과 */}
-            <div
-                className="w-full bg-[#F9FAFC] dark:bg-gray-900"
-                style={{ boxShadow: "inset 0 3px 6px -1px rgba(0, 0, 0, 0.07)" }}
-            >
-                {!showMainImage ? (
-                    /* open.png 버튼 */
-                    <div className="flex justify-center">
-                        <button onClick={() => setShowMainImage(true)} className="hover:opacity-80 transition-opacity">
-                            <Image
-                                src="/images/open.png"
-                                alt="차계부 둘러보기"
-                                width={120}
-                                height={40}
-                                priority={true}
-                                style={{ width: "auto", height: "auto" }}
-                            />
-                        </button>
-                    </div>
-                ) : (
-                    /* main.png 이미지 + close.png 버튼 오버레이 - 가로 풀 사용 */
-                    <div className="w-full">
-                        <div className="w-full animate-in slide-in-from-top-5 duration-300 relative">
-                            <Image
-                                src="/images/main.png"
-                                alt="차계부 상세 안내"
-                                width={1920}
-                                height={600}
-                                className="w-full h-auto"
-                                priority
-                            />
-                            {/* close.png 버튼을 main.png 위에 오버레이로 하단 배치 */}
-                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-                                <button
-                                    onClick={() => setShowMainImage(false)}
-                                    className="hover:opacity-80 transition-opacity"
-                                >
-                                    <Image
-                                        src="/images/close.png"
-                                        alt="차계부 닫기"
-                                        width={120}
-                                        height={40}
-                                        priority={true}
-                                        style={{ width: "auto", height: "auto" }}
-                                    />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
         </>
     );
 }
-
