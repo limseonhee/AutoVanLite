@@ -163,7 +163,7 @@ export default function DailyChartSection({ year, month, totalSmsCount, totalPus
                                                     </div>
 
                                                     {/* 날짜 라벨 (모든 일자 표시) */}
-                                                    <div className="text-xs text-gray-500 mt-1">{data.day}</div>
+                                                    <div className="text-xs text-gray-500 mt-3">{data.day}</div>
                                                 </div>
                                             );
                                         })}
@@ -220,7 +220,7 @@ export default function DailyChartSection({ year, month, totalSmsCount, totalPus
                                             })}
                                         </svg>
                                         {/* 날짜 라벨 */}
-                                        <div className="flex justify-between items-end px-2 mt-2">
+                                        <div className="flex justify-between items-end px-2 mt-4">
                                             {dailyData.map((data) => (
                                                 <div key={data.day} className="text-xs text-gray-500 flex-1 text-center">
                                                     {data.day}
@@ -233,7 +233,7 @@ export default function DailyChartSection({ year, month, totalSmsCount, totalPus
                         </div>
 
                         {/* 범례 (하단으로 이동) */}
-                        <div className="flex items-center justify-center gap-6 text-sm mb-4">
+                        <div className="flex items-center justify-center gap-6 text-sm mb-4 mt-6">
                             <div className="flex items-center gap-2">
                                 <div className="w-4 h-3 rounded-sm" style={{ backgroundColor: "#FFD991" }}></div>
                                 <span className="text-gray-600">SMS</span>

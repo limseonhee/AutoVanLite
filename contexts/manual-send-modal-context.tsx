@@ -6,7 +6,8 @@ interface ManualSendModalContextType {
     isOpen: boolean;
     initialMessage: string | undefined;
     hideTemplates: boolean;
-    openModal: (message?: string, hideTemplates?: boolean) => void;
+    restrictToGuidance: boolean;
+    openModal: (message?: string, hideTemplates?: boolean, restrictToGuidance?: boolean) => void;
     closeModal: () => void;
 }
 
@@ -16,10 +17,12 @@ export function ManualSendModalProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
     const [initialMessage, setInitialMessage] = useState<string | undefined>(undefined);
     const [hideTemplates, setHideTemplates] = useState(false);
+    const [restrictToGuidance, setRestrictToGuidance] = useState(false);
 
-    const openModal = (message?: string, shouldHideTemplates: boolean = false) => {
+    const openModal = (message?: string, shouldHideTemplates: boolean = false, shouldRestrictToGuidance: boolean = false) => {
         setInitialMessage(message);
         setHideTemplates(shouldHideTemplates);
+        setRestrictToGuidance(shouldRestrictToGuidance);
         setIsOpen(true);
     };
 
@@ -29,11 +32,12 @@ export function ManualSendModalProvider({ children }: { children: ReactNode }) {
         setTimeout(() => {
             setInitialMessage(undefined);
             setHideTemplates(false);
+            setRestrictToGuidance(false);
         }, 300);
     };
 
     return (
-        <ManualSendModalContext.Provider value={{ isOpen, initialMessage, hideTemplates, openModal, closeModal }}>
+        <ManualSendModalContext.Provider value={{ isOpen, initialMessage, hideTemplates, restrictToGuidance, openModal, closeModal }}>
             {children}
         </ManualSendModalContext.Provider>
     );

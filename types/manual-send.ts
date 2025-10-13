@@ -68,6 +68,7 @@ export interface ManualSendProps {
     onSaveTemplate?: (template: Omit<MessageTemplate, "id">) => void;
     initialMessage?: string;
     hideTemplates?: boolean;
+    restrictToGuidance?: boolean;
 }
 
 export interface SendData {

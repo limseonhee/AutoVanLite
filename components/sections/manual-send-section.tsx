@@ -27,6 +27,7 @@ export function ManualSendSection({
     onSaveTemplate,
     initialMessage,
     hideTemplates,
+    restrictToGuidance,
 }: ManualSendProps) {
     const {
         selectedCategory,
@@ -102,7 +103,7 @@ export function ManualSendSection({
                 <CardContent className="pt-0 space-y-4">
                     {/* 카테고리 칩 탭 */}
                     <div className="flex flex-wrap gap-2">
-                        {CATEGORIES.map((category) => (
+                        {(restrictToGuidance ? CATEGORIES.filter(c => c.id === "guidance") : CATEGORIES).map((category) => (
                             <Button
                                 key={category.id}
                                 variant={selectedCategory === category.id ? "default" : "outline"}

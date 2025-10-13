@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/layout/header";
 import { ManualSendModalProvider } from "@/contexts/manual-send-modal-context";
+import { ManualSendModal } from "@/components/modals/manual-send-modal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             <Header />
                             <main className="flex-1">{children}</main>
                         </div>
+                        <ManualSendModal />
                     </ManualSendModalProvider>
                 </ThemeProvider>
             </body>

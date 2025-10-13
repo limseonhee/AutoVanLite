@@ -66,7 +66,7 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
                                 {/* 각 항목별 수동 발송 버튼 */}
                                 <Button
                                     size="sm"
-                                    onClick={() => openModal(template.previewText, true)}
+                                    onClick={() => openModal(template.previewText, true, true)}
                                     className="bg-purple-500 hover:bg-purple-600 text-white text-xs px-4 rounded-[3px] whitespace-nowrap flex-shrink-0"
                                 >
                                     <Send className="h-3 w-3 mr-1" />
