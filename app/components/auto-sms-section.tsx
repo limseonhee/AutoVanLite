@@ -81,11 +81,11 @@ export default function AutoSmsSection({
                             <div
                                 key={segment.id}
                                 className="flex items-center justify-between p-4"
-                                style={{ backgroundColor: '#EEFAFF' }}
+                                style={{ backgroundColor: "#EEFAFF" }}
                             >
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-3">
-                                        <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                                        <span className="text-sm font-bold text-gray-900 dark:text-white">
                                             {segment.name}
                                         </span>
                                     </div>
@@ -95,7 +95,8 @@ export default function AutoSmsSection({
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-2 ml-2">
+                                {/* 오른쪽: 버튼들 */}
+                                <div className="flex items-center gap-2 ml-4">
                                     <Button
                                         variant="outline"
                                         size="sm"
@@ -103,9 +104,8 @@ export default function AutoSmsSection({
                                             setSelectedSegment(segment);
                                             setShowPopup(true);
                                         }}
-                                        className="text-xs px-3 py-1 h-7 border-gray-200 bg-white hover:bg-gray-50 text-gray-700 rounded-[3px] whitespace-nowrap"
+                                        className="text-sm px-4 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 rounded-[3px]"
                                     >
-                                        <Eye className="h-3 w-3 mr-1" />
                                         발송 전 확인
                                     </Button>
                                     <Button
@@ -115,10 +115,9 @@ export default function AutoSmsSection({
                                             setShowPopup(true);
                                         }}
                                         disabled={segment.status === "sending"}
-                                        className="text-white text-xs px-3 py-1 h-7 rounded-[3px] whitespace-nowrap"
-                                        style={{ backgroundColor: '#0AA5ED' }}
+                                        className="text-white text-sm px-6 rounded-[3px]"
+                                        style={{ backgroundColor: "#0AA5ED" }}
                                     >
-                                        <Send className="h-3 w-3 mr-1" />
                                         발송
                                     </Button>
                                 </div>

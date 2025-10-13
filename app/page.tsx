@@ -127,7 +127,7 @@ export default function Home() {
                     />
                 </div>
 
-                {/* 다섯 번째 행: SMS vs 푸시메시지 사용률 추이 */}
+                {/* 다섯 번째 행: SMS vs 푸시메시지 사용율 추이 */}
                 <div className="grid grid-cols-1 gap-6 mb-6">
                     <SmsPushTrendSection trendData={DASHBOARD_DATA.smsPushTrend} />
                 </div>

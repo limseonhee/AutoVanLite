@@ -44,13 +44,18 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
                     </Button>
                 </div>
 
-                {/* 템플릿 리스트 */}
-                <div className="space-y-4">
-                    {templates.map((template) => (
-                        <div key={template.id} className="p-6 rounded-lg" style={{ backgroundColor: "#FBF8FF" }}>
+                {/* 템플릿 리스트 - 전체를 하나의 배경색으로 묶음 */}
+                <div className="rounded-lg" style={{ backgroundColor: "#FBF8FF" }}>
+                    {templates.map((template, index) => (
+                        <div
+                            key={template.id}
+                            className={`px-6 py-5 ${
+                                index !== templates.length - 1 ? "border-b border-gray-200 dark:border-gray-300" : ""
+                            }`}
+                        >
                             <div className="flex items-center justify-between gap-4">
                                 <div className="flex-1">
-                                    <h4 className="font-semibold text-gray-900 dark:text-white text-base mb-2">
+                                    <h4 className="font-bold text-gray-900 dark:text-white text-sm mb-2">
                                         {template.name}
                                     </h4>
                                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">

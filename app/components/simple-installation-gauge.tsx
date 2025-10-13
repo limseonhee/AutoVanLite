@@ -31,21 +31,27 @@ export default function SimpleInstallationGauge({ currentInstalls, targetInstall
                         <h2 className="text-xl font-bold text-gray-900 dark:text-white">차계부 설치 현황</h2>
                         <div className="text-sm text-gray-500 dark:text-gray-400">
                             전체 달성률{" "}
-                            <span className="text-cyan-500 font-semibold">{Math.round(progressPercentage)}%</span>
+                            <span className="font-semibold" style={{ color: "#2DDADB" }}>
+                                {Math.round(progressPercentage)}%
+                            </span>
                         </div>
                     </div>
-                    <Button className="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 text-sm rounded-[3px] whitespace-nowrap">
+                    <Button
+                        variant="outline"
+                        className="border-2 bg-white hover:bg-cyan-50 px-4 py-1.5 text-sm rounded-full whitespace-nowrap"
+                        style={{ borderColor: "#2DDADB", color: "#2DDADB" }}
+                    >
                         내 인증 배지 확인
                     </Button>
                 </div>
 
                 {/* 2행: 프로그레스 바 */}
-                <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
-                    <div className="relative py-2">
+                <div className="mb-6 pb-7 border-b border-gray-200 dark:border-gray-700">
+                    <div className="relative py-8">
                         {/* 현재 달성 배지 위치 */}
                         {currentBadge && (
                             <div
-                                className="absolute -top-8 transform -translate-x-1/2 flex flex-col items-center z-10"
+                                className="absolute -top-0 transform -translate-x-1/2 flex flex-col items-center z-10"
                                 style={{
                                     left: `${Math.min(
                                         (currentBadge.threshold / Math.max(...MILESTONES.map((m) => m.threshold))) *
@@ -60,14 +66,13 @@ export default function SimpleInstallationGauge({ currentInstalls, targetInstall
                                 >
                                     <span className="text-sm">{currentBadge.icon}</span>
                                 </div>
-                                <div className="w-0.5 h-2 bg-gray-400 mt-0.5"></div>
                             </div>
                         )}
 
                         {/* 다음 목표 배지 위치 */}
                         {nextBadge && (
                             <div
-                                className="absolute -top-8 transform -translate-x-1/2 flex flex-col items-center z-10"
+                                className="absolute -top-2 transform -translate-x-1/2 flex flex-col items-center z-10"
                                 style={{
                                     left: `${Math.min(
                                         (nextBadge.threshold / Math.max(...MILESTONES.map((m) => m.threshold))) * 100,
@@ -81,12 +86,11 @@ export default function SimpleInstallationGauge({ currentInstalls, targetInstall
                                 >
                                     <span className="text-sm">{nextBadge.icon}</span>
                                 </div>
-                                <div className="w-0.5 h-2 bg-gray-300 mt-0.5 opacity-40"></div>
                             </div>
                         )}
 
                         {/* 프로그레스 바 */}
-                        <div className="relative h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mt-4">
+                        <div className="relative h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mt-1">
                             <div
                                 className="h-full bg-cyan-500 transition-all duration-500 ease-out rounded-full"
                                 style={{ width: `${progressPercentage}%` }}
@@ -116,8 +120,8 @@ export default function SimpleInstallationGauge({ currentInstalls, targetInstall
 
                         {/* 현재값 표시 */}
                         <div
-                            className="absolute top-6 transform -translate-x-1/2 bg-cyan-500 text-white px-2.5 py-0.5 rounded-md text-base font-bold shadow-lg"
-                            style={{ left: `${Math.min(progressPercentage, 100)}%` }}
+                            className="absolute transform -translate-x-1/2 bg-white px-2.5 py-0.5 rounded-md text-base font-bold shadow-lg"
+                            style={{ left: `${Math.min(progressPercentage, 100)}%`, top: "70px", color: "#2DDADB" }}
                         >
                             {currentInstalls.toLocaleString()}
                         </div>

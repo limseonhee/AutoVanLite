@@ -58,7 +58,7 @@ export default function BulkReportSendSection({
                             variant="outline"
                             size="sm"
                             onClick={() => setShowBulkSendPopup(true)}
-                            className="text-sm px-4 py-2 border-gray-200 bg-white hover:bg-gray-50 text-gray-700 flex-1 rounded-[3px]"
+                            className="text-sm px-4 py-2 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 flex-1 rounded-[3px]"
                         >
                             <Eye className="h-4 w-4 mr-1" />
                             발송 전 확인
