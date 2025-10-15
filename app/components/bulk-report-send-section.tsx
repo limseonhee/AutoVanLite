@@ -25,7 +25,7 @@ export default function BulkReportSendSection({
 
     return (
         <>
-            <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm h-full">
+            <Card className="p-6 bg-white dark:bg-gray-900 border-0 rounded-lg shadow-md h-full">
                 <div className="flex flex-col h-full">
                     {/* 헤더 */}
                     <div className="flex items-center gap-2 mb-6">

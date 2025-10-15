@@ -38,7 +38,7 @@ export default function SmsPushTrendSection({ trendData }: SmsushTrendSectionPro
     const pushOffset = smsOffset - smsLength; // SMS 다음부터 시작
 
     return (
-        <Card className="p-6 border-0 rounded-lg shadow-sm h-full" style={{ backgroundColor: "#3B82F6" }}>
+        <Card className="p-6 border-0 rounded-lg shadow-md h-full" style={{ backgroundColor: "#3B82F6" }}>
             <div className="h-full flex flex-col">
                 {/* 헤더 */}
                 <div className="flex items-center gap-3 mb-6">

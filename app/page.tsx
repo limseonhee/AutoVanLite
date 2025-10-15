@@ -85,19 +85,18 @@ export default function Home() {
                     />
                 </div>
 
-                {/* 세 번째 행: 대기 메시지 관리 (풀 너비) */}
-                <div className="mb-6">
-                    <AutoSmsSection
-                        smsTargets={DASHBOARD_DATA.autoSms.smsTargets}
-                        pushTargets={DASHBOARD_DATA.autoSms.pushTargets}
-                        segments={DASHBOARD_DATA.autoSms.segments}
-                        onSendSegment={handleSendSegment}
-                        onViewTargets={handleViewTargets}
-                    />
-                </div>
+                {/* 세 번째 행: 대기 메시지 관리 + 이달의 추천 메시지발송문구 (풀 너비) */}
+                <div className="mb-6 p-6 bg-white dark:bg-gray-900 border-0 rounded-lg shadow-md">
+                    <div className="mb-6">
+                        <AutoSmsSection
+                            smsTargets={DASHBOARD_DATA.autoSms.smsTargets}
+                            pushTargets={DASHBOARD_DATA.autoSms.pushTargets}
+                            segments={DASHBOARD_DATA.autoSms.segments}
+                            onSendSegment={handleSendSegment}
+                            onViewTargets={handleViewTargets}
+                        />
+                    </div>
 
-                {/* 네 번째 행: 이달의 추천 메시지발송문구 (풀 너비) */}
-                <div className="mb-6">
                     <MonthlyTemplateSection
                         templates={DASHBOARD_DATA.monthlyTemplates}
                         onSendTemplate={handleSendTemplate}

@@ -231,3 +231,87 @@
  ✓ Compiled in 525ms (1342 modules)
  GET / 200 in 33ms
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 658ms (1342 modules)
+ GET / 200 in 36ms
+ ⨯ ./app/components/auto-sms-section.tsx
+Error:   [31mx[0m Expression expected
+    ,-[[36;1;4mD:\study\AutoVanLite\app\components\auto-sms-section.tsx[0m:56:1]
+ [2m53[0m |         }
+ [2m54[0m |     };
+ [2m55[0m |     return (
+ [2m56[0m |         <>
+    : [35;1m         ^[0m
+ [2m57[0m |             <div className="space-y-6">
+ [2m58[0m |                     {/* 헤더 */}
+ [2m58[0m |                     <div className="flex items-center justify-between">
+    `----
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4mD:\study\AutoVanLite\app\components\auto-sms-section.tsx[0m:117:1]
+ [2m114[0m |                         ))}
+ [2m115[0m |                     </div>
+ [2m116[0m |                 </div>
+ [2m117[0m |             </Card>
+     : [35;1m             ^^^^^^[0m
+ [2m118[0m | 
+ [2m119[0m |             {/* 공통 발송 팝업 */}
+ [2m119[0m |             {selectedSegment && (
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/components/auto-sms-section.tsx
+./app/page.tsx
+ ✓ Compiled in 722ms (1342 modules)
+ GET / 200 in 55ms
+ ⨯ ./app/components/monthly-template-section.tsx
+Error:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+    ,-[[36;1;4mD:\study\AutoVanLite\app\components\monthly-template-section.tsx[0m:26:1]
+ [2m23[0m |     const { openModal } = useManualSendModal();
+ [2m24[0m | 
+ [2m25[0m |     return (
+ [2m26[0m |         <div>
+    : [35;1m         ^^^[0m
+ [2m27[0m |                 {/* 헤더 */}
+ [2m28[0m |                 <div className="flex items-center justify-between mb-6">
+ [2m28[0m |                     <div className="flex items-center gap-3">
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/components/monthly-template-section.tsx
+./app/page.tsx
+ ✓ Compiled in 851ms (1342 modules)
+ GET / 200 in 50ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\server-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 541ms (1342 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 523ms (1342 modules)
+ GET / 200 in 36ms
+ ✓ Compiled in 556ms (1342 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 524ms (1342 modules)
+ GET / 200 in 38ms
+ ✓ Compiled in 731ms (1342 modules)
+ GET / 200 in 47ms
+ ✓ Compiled in 587ms (1342 modules)
+ GET / 200 in 40ms
+ ✓ Compiled in 567ms (1342 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 571ms (1342 modules)
+ ⨯ TypeError: __webpack_require__.C is not a function
+    at <unknown> (D:\study\AutoVanLite\.next\server\app\page.js:767:21)
+    at Object.<anonymous> (D:\study\AutoVanLite\.next\server\app\page.js:772:3) {
+  page: '/'
+}
+ ✓ Compiled /_error in 244ms (1371 modules)
+ GET / 500 in 721ms
+ GET / 200 in 349ms
+ ✓ Compiled in 600ms (1385 modules)
+ GET / 200 in 62ms
+ ✓ Compiled in 602ms (1385 modules)
+ GET / 200 in 36ms

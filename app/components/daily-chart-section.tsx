@@ -25,7 +25,7 @@ export default function DailyChartSection({
 
     return (
         <>
-            <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+            <Card className="p-6 bg-white dark:bg-gray-900 border-0 rounded-lg shadow-md">
                 <div>
                     {/* 헤더 */}
                     <div className="flex items-center justify-between mb-6">

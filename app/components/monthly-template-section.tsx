@@ -23,8 +23,7 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
     const { openModal } = useManualSendModal();
 
     return (
-        <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-            <div>
+        <div>
                 {/* 헤더 */}
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
@@ -76,7 +75,6 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
                         </div>
                     ))}
                 </div>
-            </div>
-        </Card>
+        </div>
     );
 }

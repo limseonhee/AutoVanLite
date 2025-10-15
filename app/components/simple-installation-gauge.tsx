@@ -24,7 +24,7 @@ export default function SimpleInstallationGauge({ currentInstalls, targetInstall
 
     return (
         <div>
-            <Card className="p-6 px-16 border-0 shadow-none" style={{ backgroundColor: "#F9FAFC" }}>
+            <Card className="p-6 px-16 border-0 shadow-md" style={{ backgroundColor: "#F9FAFC" }}>
                 {/* 1행: 제목 + 달성률 + 버튼 */}
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-4">

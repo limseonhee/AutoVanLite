@@ -54,8 +54,7 @@ export default function AutoSmsSection({
     };
     return (
         <>
-            <Card className="p-6 bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-                <div className="space-y-6">
+            <div className="space-y-6">
                     {/* 헤더 */}
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -114,8 +113,7 @@ export default function AutoSmsSection({
                             </div>
                         ))}
                     </div>
-                </div>
-            </Card>
+            </div>
 
             {/* 공통 발송 팝업 */}
             {selectedSegment && (
