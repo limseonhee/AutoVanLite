@@ -7,7 +7,7 @@ import { CalendarGrid } from "@/components/ui/calendar-grid";
 import { useCalendar } from "@/hooks/use-calendar";
 import { CalendarProps, CalendarData } from "@/types/calendar";
 
-export function CalendarSection({
+export default function CalendarSection({
     year = 2025,
     month = 9,
     totalSmsCount = 850,

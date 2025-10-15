@@ -1,0 +1,233 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3001
+   - Network:      http://211.47.182.109:3001
+   - Environments: .env.local, .env.development
+
+ ✓ Starting...
+ ✓ Ready in 2.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 4.6s (1065 modules)
+ GET / 200 in 5568ms
+ ✓ Compiled in 603ms (485 modules)
+ GET / 200 in 92ms
+ ✓ Compiled in 617ms (485 modules)
+ GET / 200 in 32ms
+ ✓ Compiled in 722ms (1056 modules)
+ GET / 200 in 62ms
+ GET / 200 in 488ms
+ ✓ Compiled in 663ms (1058 modules)
+ GET / 200 in 73ms
+ GET / 200 in 73ms
+ ✓ Compiled /_not-found in 467ms (1048 modules)
+ GET /charge 404 in 517ms
+ GET /charge 404 in 181ms
+ GET / 200 in 129ms
+ GET /charge 404 in 10ms
+ GET /charge 404 in 36ms
+ GET / 200 in 130ms
+ ✓ Compiled in 626ms (1062 modules)
+ GET / 200 in 44ms
+ GET / 200 in 45ms
+ ✓ Compiled in 632ms (1064 modules)
+ GET / 200 in 39ms
+ GET / 200 in 13ms
+ ✓ Compiled in 588ms (1064 modules)
+ GET / 200 in 40ms
+ GET / 200 in 42ms
+ ✓ Compiled in 544ms (1060 modules)
+ GET / 200 in 40ms
+ GET / 200 in 41ms
+ ✓ Compiled in 562ms (1060 modules)
+ GET / 200 in 39ms
+ GET / 200 in 40ms
+ ✓ Compiled in 679ms (1060 modules)
+ GET / 200 in 45ms
+ GET / 200 in 45ms
+ ✓ Compiled in 614ms (1060 modules)
+ GET / 200 in 40ms
+ GET / 200 in 41ms
+ ✓ Compiled in 589ms (1060 modules)
+ GET / 200 in 38ms
+ GET / 200 in 39ms
+ ✓ Compiled in 587ms (1060 modules)
+ GET / 200 in 41ms
+ GET / 200 in 42ms
+ ✓ Compiled in 831ms (1060 modules)
+ GET / 200 in 44ms
+ GET / 200 in 46ms
+ ✓ Compiled in 621ms (1060 modules)
+ GET / 200 in 45ms
+ GET / 200 in 46ms
+ ✓ Compiled in 644ms (1060 modules)
+ GET / 200 in 65ms
+ GET / 200 in 67ms
+ ✓ Compiled in 732ms (1060 modules)
+ GET / 200 in 51ms
+ GET / 200 in 53ms
+ GET / 200 in 171ms
+ ✓ Compiled /_not-found in 456ms (1050 modules)
+ GET /_next/static/css/app/layout.css?v=1760343358703 404 in 601ms
+ GET /_next/static/chunks/webpack.js?v=1760343358703 404 in 727ms
+ GET /_next/static/chunks/app/page.js 404 in 166ms
+ GET /_next/static/chunks/app/layout.js 404 in 166ms
+ GET /_next/static/chunks/app/error.js 404 in 168ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 168ms
+ GET /_next/static/chunks/main-app.js?v=1760343358703 404 in 170ms
+ GET / 200 in 231ms
+ GET /_next/static/css/app/layout.css?v=1760343361067 404 in 33ms
+ GET /_next/static/chunks/app/layout.js 404 in 141ms
+ GET /_next/static/chunks/app/error.js 404 in 142ms
+ GET /_next/static/chunks/main-app.js?v=1760343361067 404 in 143ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 145ms
+ GET /_next/static/chunks/app/page.js 404 in 142ms
+ GET / 200 in 120ms
+ GET /_next/static/css/app/layout.css?v=1760343363165 404 in 35ms
+ GET /_next/static/chunks/app/layout.js 404 in 158ms
+ GET /_next/static/chunks/app/error.js 404 in 159ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 161ms
+ GET /_next/static/chunks/main-app.js?v=1760343363165 404 in 162ms
+ GET /_next/static/chunks/app/page.js 404 in 162ms
+ GET / 200 in 335ms
+ GET /_next/static/css/app/layout.css?v=1760343365083 404 in 34ms
+ GET /_next/static/chunks/app/error.js 404 in 141ms
+ GET /_next/static/chunks/app/page.js 404 in 142ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 142ms
+ GET /_next/static/chunks/main-app.js?v=1760343365083 404 in 144ms
+ GET /_next/static/chunks/app/layout.js 404 in 142ms
+ ✓ Compiled in 974ms (1060 modules)
+ GET / 200 in 357ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\4.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\4.pack.gz'
+ ✓ Compiled in 716ms (1046 modules)
+ ✓ Compiled in 423ms (1046 modules)
+ ✓ Compiled in 641ms (1060 modules)
+ GET / 200 in 58ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 580ms (1060 modules)
+ GET / 200 in 86ms
+ ✓ Compiled in 745ms (1060 modules)
+ GET / 200 in 55ms
+ ✓ Compiled in 611ms (1060 modules)
+ GET / 200 in 31ms
+ ✓ Compiled in 527ms (1060 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 575ms (1060 modules)
+ GET / 200 in 35ms
+ ✓ Compiled in 572ms (1060 modules)
+ GET / 200 in 32ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 668ms (1060 modules)
+ GET / 200 in 59ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\2.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\2.pack.gz'
+ ✓ Compiled in 1194ms (1060 modules)
+ GET / 200 in 42ms
+ ✓ Compiled in 577ms (1060 modules)
+ GET / 200 in 172ms
+ ✓ Compiled in 549ms (1060 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 375ms (573 modules)
+ ✓ Compiled in 423ms (487 modules)
+ GET / 200 in 31ms
+ ✓ Compiled in 605ms (1060 modules)
+ GET / 200 in 38ms
+ ✓ Compiled in 624ms (1060 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 712ms (1060 modules)
+ GET / 200 in 48ms
+ ✓ Compiled in 785ms (1060 modules)
+ GET / 200 in 122ms
+ ✓ Compiled in 702ms (1060 modules)
+ GET / 200 in 50ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\server-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 800ms (487 modules)
+ GET / 200 in 59ms
+ ✓ Compiled in 993ms (1060 modules)
+ GET / 200 in 260ms
+ GET / 200 in 157ms
+ ✓ Compiled in 596ms (1060 modules)
+ GET / 200 in 73ms
+ ✓ Compiled in 514ms (1060 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 613ms (1058 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 604ms (1058 modules)
+ GET / 200 in 44ms
+ ✓ Compiled in 514ms (1058 modules)
+ GET / 200 in 35ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 636ms (1058 modules)
+ GET / 200 in 71ms
+ ✓ Compiled in 738ms (1058 modules)
+ GET / 200 in 93ms
+ ✓ Compiled in 565ms (1058 modules)
+ GET / 200 in 41ms
+ ✓ Compiled in 590ms (1058 modules)
+ GET / 200 in 47ms
+ ✓ Compiled in 843ms (1058 modules)
+ GET / 200 in 206ms
+ ✓ Compiled in 766ms (1058 modules)
+ GET / 200 in 65ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 583ms (1044 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\1.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\1.pack.gz'
+ ✓ Compiled in 615ms (1058 modules)
+ GET / 200 in 85ms
+ ✓ Compiled in 555ms (1058 modules)
+ GET / 200 in 58ms
+ ✓ Compiled in 543ms (1058 modules)
+ GET / 200 in 36ms
+ ✓ Compiled /_not-found in 167ms (1048 modules)
+ GET /_next/static/css/app/layout.css?v=1760491558085 404 in 354ms
+ ✓ Compiled in 522ms (1062 modules)
+ GET / 200 in 36ms
+ GET /_next/static/css/app/layout.css?v=1760491560321 404 in 87ms
+ ✓ Compiled in 492ms (1062 modules)
+ GET / 200 in 35ms
+ ✓ Compiled in 503ms (1062 modules)
+ GET / 200 in 31ms
+ ✓ Compiled in 589ms (1058 modules)
+ ⨯ SyntaxError: Invalid or unexpected token
+    at <unknown> (D:\study\AutoVanLite\.next\server\app\page.js:608) {
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1672ms (1373 modules)
+ GET / 500 in 2484ms
+ GET / 200 in 372ms
+ GET / 200 in 22ms
+ GET / 200 in 249ms
+ ✓ Compiled in 712ms (1387 modules)
+ GET / 200 in 92ms
+ ✓ Compiled in 799ms (1387 modules)
+ GET / 200 in 38ms
+ ✓ Compiled in 652ms (1387 modules)
+ GET / 200 in 55ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 659ms (1344 modules)
+ GET / 200 in 110ms
+ ✓ Compiled in 685ms (1344 modules)
+ GET / 200 in 83ms
+ ✓ Compiled in 619ms (1344 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 381ms (617 modules)
+ ✓ Compiled in 537ms (727 modules)
+ GET / 200 in 32ms
+ ✓ Compiled in 612ms (1344 modules)
+ GET / 200 in 36ms
+ ✓ Compiled in 655ms (1342 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 530ms (1342 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 548ms (1342 modules)
+ GET / 200 in 61ms
+ ✓ Compiled in 560ms (1342 modules)
+ GET / 200 in 44ms
+ ✓ Compiled in 506ms (1342 modules)
+ GET / 200 in 35ms
+ ✓ Compiled in 525ms (1342 modules)
+ GET / 200 in 33ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz_' -> 'D:\study\AutoVanLite\.next\cache\webpack\client-development\0.pack.gz'

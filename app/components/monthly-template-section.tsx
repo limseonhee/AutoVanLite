@@ -39,7 +39,7 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
                         onClick={() => openModal()}
                         className="rounded-[3px] bg-purple-500 hover:bg-purple-600"
                     >
-                        <Send className="h-4 w-4 mr-1" />
+                        {/* <Send className="h-4 w-4 mr-1" /> */}
                         수동 발송
                     </Button>
                 </div>
@@ -69,7 +69,7 @@ export default function MonthlyTemplateSection({ templates, onSendTemplate }: Mo
                                     onClick={() => openModal(template.previewText, true, true)}
                                     className="bg-purple-500 hover:bg-purple-600 text-white text-xs px-4 rounded-[3px] whitespace-nowrap flex-shrink-0"
                                 >
-                                    <Send className="h-3 w-3 mr-1" />
+                                    {/* <Send className="h-3 w-3 mr-1" /> */}
                                     수동 발송
                                 </Button>
                             </div>

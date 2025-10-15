@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/layout/container";
-import { CalendarSection } from "@/components/sections/calendar-section";
+import CalendarSection from "@/app/components/calendar-section";
 import { CalendarData } from "@/types/calendar";
 import { SAMPLE_CALENDAR_DATA } from "@/mocks";
 

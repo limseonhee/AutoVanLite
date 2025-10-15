@@ -14,7 +14,7 @@ interface SmsushTrendSectionProps {
     trendData: readonly TrendData[];
 }
 
-export function SmsPushTrendSection({ trendData }: SmsushTrendSectionProps) {
+export default function SmsPushTrendSection({ trendData }: SmsushTrendSectionProps) {
     // 최신 데이터 (첫 번째 항목) 사용
     const latestData = trendData[0];
 
@@ -38,8 +38,8 @@ export function SmsPushTrendSection({ trendData }: SmsushTrendSectionProps) {
     const pushOffset = smsOffset - smsLength; // SMS 다음부터 시작
 
     return (
-        <Card className="p-6 border-0 rounded-lg shadow-sm" style={{ backgroundColor: "#3B82F6" }}>
-            <div>
+        <Card className="p-6 border-0 rounded-lg shadow-sm h-full" style={{ backgroundColor: "#3B82F6" }}>
+            <div className="h-full flex flex-col">
                 {/* 헤더 */}
                 <div className="flex items-center gap-3 mb-6">
                     <TrendingUp className="h-6 w-6 text-white" />
@@ -50,7 +50,7 @@ export function SmsPushTrendSection({ trendData }: SmsushTrendSectionProps) {
                 </div>
 
                 {/* 도넛 차트 및 범례 */}
-                <div className="flex items-start justify-end" style={{ gap: "50px", marginTop: "-32px" }}>
+                <div className="flex items-center justify-end flex-1" style={{ gap: "50px" }}>
                     {/* 차트 */}
                     <div className="relative">
                         <svg width={size} height={size} className="transform -rotate-90">

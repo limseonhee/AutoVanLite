@@ -5,7 +5,7 @@ export const DASHBOARD_DATA = {
         savingsPercentage: 24,
     },
     installationGoal: {
-        currentInstalls: 750,
+        currentInstalls: 1500,
         targetInstalls: 15000,
     },
     autoSms: {
@@ -25,7 +25,7 @@ export const DASHBOARD_DATA = {
                 name: "오일교환고객",
                 condition: "주행거리/기간 기준",
                 targetCount: 86,
-                status: "ready" as const,
+                status: "completed" as const,
                 channels: ["SMS", "Push"] as const,
             },
             {

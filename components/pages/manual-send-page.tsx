@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/layout/container";
-import { ManualSendSection } from "@/components/sections/manual-send-section";
+import ManualSendSection from "@/app/components/manual-send-section";
 import { SendData, ScheduleData, MessageTemplate } from "@/types/manual-send";
 
 interface ManualSendPageProps {

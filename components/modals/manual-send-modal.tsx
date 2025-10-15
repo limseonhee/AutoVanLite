@@ -3,7 +3,7 @@
 import { useManualSendModal } from "@/contexts/manual-send-modal-context";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { ManualSendSection } from "@/components/sections/manual-send-section";
+import ManualSendSection from "@/app/components/manual-send-section";
 
 export function ManualSendModal() {
     const { isOpen, initialMessage, hideTemplates, restrictToGuidance, closeModal } = useManualSendModal();

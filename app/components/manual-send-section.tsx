@@ -21,7 +21,7 @@ const CATEGORIES: CategoryInfo[] = [
     { id: "birthday", name: "생일", description: "고객 생일 축하" },
 ];
 
-export function ManualSendSection({
+export default function ManualSendSection({
     onSend,
     onSchedule,
     onSaveTemplate,

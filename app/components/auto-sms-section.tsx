@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { MessageSquare, Send, Users, Eye } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { CommonSendPopup } from "@/components/modals/common-send-popup";
 import { generateCustomers, getSegmentMessage } from "@/mocks";
+import { useModal } from "@/hooks/use-modal";
 
 interface AutoSmsSectionProps {
     smsTargets: number;
@@ -27,8 +26,7 @@ export default function AutoSmsSection({
     onSendSegment,
     onViewTargets,
 }: AutoSmsSectionProps) {
-    const [showPopup, setShowPopup] = useState(false);
-    const [selectedSegment, setSelectedSegment] = useState<any>(null);
+    const { isOpen: showPopup, data: selectedSegment, openModal, closeModal } = useModal<any>();
     const getStatusColor = (status: string) => {
         switch (status) {
             case "ready":
@@ -100,25 +98,17 @@ export default function AutoSmsSection({
                                     <Button
                                         variant="outline"
                                         size="sm"
-                                        onClick={() => {
-                                            setSelectedSegment(segment);
-                                            setShowPopup(true);
-                                        }}
                                         className="text-sm px-4 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 rounded-[3px]"
                                     >
                                         발송 전 확인
                                     </Button>
                                     <Button
                                         size="sm"
-                                        onClick={() => {
-                                            setSelectedSegment(segment);
-                                            setShowPopup(true);
-                                        }}
-                                        disabled={segment.status === "sending"}
-                                        className="text-white text-sm px-6 rounded-[3px]"
+                                        disabled={segment.status === "sending" || segment.status === "completed"}
+                                        className="text-white text-sm px-6 rounded-[3px] w-[80px]"
                                         style={{ backgroundColor: "#0AA5ED" }}
                                     >
-                                        발송
+                                        {getStatusText(segment.status)}
                                     </Button>
                                 </div>
                             </div>
@@ -131,10 +121,7 @@ export default function AutoSmsSection({
             {selectedSegment && (
                 <CommonSendPopup
                     isOpen={showPopup}
-                    onClose={() => {
-                        setShowPopup(false);
-                        setSelectedSegment(null);
-                    }}
+                    onClose={closeModal}
                     title="대기 메시지 발송"
                     icon={<MessageSquare className="h-5 w-5 text-blue-600" />}
                     description={`'${selectedSegment.name}' 세그먼트에 해당하는 고객들에게 메시지를 발송합니다.`}
@@ -151,8 +138,7 @@ export default function AutoSmsSection({
                     onSend={() => {
                         console.log("메시지 발송:", selectedSegment.id);
                         onSendSegment?.(selectedSegment.id);
-                        setShowPopup(false);
-                        setSelectedSegment(null);
+                        closeModal();
                     }}
                     customerList={generateCustomers(selectedSegment.id, selectedSegment.targetCount)}
                 />

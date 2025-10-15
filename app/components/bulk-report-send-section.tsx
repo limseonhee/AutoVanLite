@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Eye, Send, Users } from "lucide-react";
 import { CommonSendPopup } from "@/components/modals/common-send-popup";
 import { generateCustomers, BULK_REPORT_PREVIEW } from "@/mocks";
+import { useModal } from "@/hooks/use-modal";
 
 interface BulkReportSendSectionProps {
     todayInboundCount: number;
@@ -18,7 +18,7 @@ export default function BulkReportSendSection({
     onViewAll,
     onBulkSend,
 }: BulkReportSendSectionProps) {
-    const [showBulkSendPopup, setShowBulkSendPopup] = useState(false);
+    const { isOpen: showBulkSendPopup, openModal, closeModal } = useModal();
     // 샘플 데이터 생성
     const remainingCount = todayInboundCount - todaySentCount;
     const sampleCustomers = generateCustomers("statements", remainingCount);
@@ -57,18 +57,16 @@ export default function BulkReportSendSection({
                         <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => setShowBulkSendPopup(true)}
                             className="text-sm px-4 py-2 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 flex-1 rounded-[3px]"
                         >
-                            <Eye className="h-4 w-4 mr-1" />
+                            {/* <Eye className="h-4 w-4 mr-1" /> */}
                             발송 전 확인
                         </Button>
                         <Button
                             size="sm"
-                            onClick={() => setShowBulkSendPopup(true)}
                             className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 flex-1 rounded-[3px]"
                         >
-                            <Send className="h-4 w-4 mr-1" />
+                            {/* <Send className="h-4 w-4 mr-1" /> */}
                             일괄발송
                         </Button>
                     </div>
@@ -78,7 +76,7 @@ export default function BulkReportSendSection({
             {/* 공통 발송 팝업 */}
             <CommonSendPopup
                 isOpen={showBulkSendPopup}
-                onClose={() => setShowBulkSendPopup(false)}
+                onClose={closeModal}
                 title="점검정비명세서 일괄발송"
                 icon={<Users className="h-5 w-5 text-blue-600" />}
                 description="오늘 작업 완료된 차량들의 점검정비명세서를 고객들에게 일괄로 발송합니다."
@@ -91,7 +89,7 @@ export default function BulkReportSendSection({
                 onSend={() => {
                     console.log("점검정비명세서 일괄발송 실행");
                     onBulkSend?.();
-                    setShowBulkSendPopup(false);
+                    closeModal();
                 }}
                 customerList={sampleCustomers}
             />
